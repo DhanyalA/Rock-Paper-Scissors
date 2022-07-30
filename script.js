@@ -9,6 +9,8 @@ function computerPlay() {
 // #3 - Function to play through a round and determines winner
 let playerSelection;
 let computerSelection = computerPlay();
+let playerScore = 0;
+let computerScore = 0;
 
 function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -21,11 +23,24 @@ function playRound (playerSelection, computerSelection) {
        (playerSelection == 'paper' && computerSelection == 'scissors') || 
        (playerSelection == 'scissors' && computerSelection == 'rock')
     ) {
+        computerScore++
         return `You lose! ${(computerSelection)} beats ${(playerSelection)}`
     } else { 
+        playerScore++
         return `You win! ${(playerSelection)} beats ${(computerSelection)}`
     }
 }
 
-console.log(playRound('rock'))
+// console.log(playRound('rock'));
+
+// #4 -create new function that calls playRound() and allows for 5 round
+//     to be played
+
+// game winner is checked through console.log()
+
+function isGameOver() {
+    return playerScore === 5 || computerScore === 5
+}
+
+// #5 - create prompt to ask users choice
 
